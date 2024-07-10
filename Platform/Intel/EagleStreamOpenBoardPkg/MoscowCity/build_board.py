@@ -1,7 +1,7 @@
 # @ build_board.py
-# Extensions for building CooperCityRvp using build_bios.py
+# Extensions for building WilsonCityRvp using build_bios.py
 #
-# Copyright (c) 2021, Intel Corporation. All rights reserved.<BR>
+# Copyright (c) 2021 - 2023, Intel Corporation. All rights reserved.<BR>
 # SPDX-License-Identifier: BSD-2-Clause-Patent
 #
 
@@ -23,6 +23,7 @@ def pre_build_ex(config, functions):
     :returns: nothing
     """
     print("pre_build_ex")
+
     config["BUILD_DIR_PATH"] = os.path.join(config["WORKSPACE"],
                                             'Build',
                                             config["PLATFORM_BOARD_PACKAGE"],
@@ -50,6 +51,76 @@ def pre_build_ex(config, functions):
         config["EXT_BUILD_FLAGS"] += " -D FSP_MODE=0"
     else:
         config["EXT_BUILD_FLAGS"] += " -D FSP_MODE=1"
+
+    if config.get("API_MODE_FSP_WRAPPER_BUILD", "FALSE") == "TRUE":
+        raise ValueError("FSP API Mode is currently unsupported on Ice Lake Xeon Scalable")
+
+    # Build the ACPI AML offset table *.offset.h
+    print("Info: re-generating PlatformOffset header files")
+
+    execute_script = functions.get("execute_script")
+
+    # AML offset arch is X64, not sure if it matters.
+    command = ["build", "-a", "X64", "-t", config["TOOL_CHAIN_TAG"], "-D", "MAX_SOCKET=" + config["MAX_SOCKET"]]
+
+    if config["EXT_BUILD_FLAGS"] and config["EXT_BUILD_FLAGS"] != "":
+        ext_build_flags = config["EXT_BUILD_FLAGS"].split(" ")
+        ext_build_flags = [x.strip() for x in ext_build_flags]
+        ext_build_flags = [x for x in ext_build_flags if x != ""]
+        command.extend(ext_build_flags)
+
+    aml_offsets_split = os.path.split(os.path.normpath(config["AML_OFFSETS_PATH"]))
+    command.append("-p")
+    command.append(os.path.normpath(config["AML_OFFSETS_PATH"]) + '.dsc')
+    command.append("-m")
+    command.append(os.path.join(aml_offsets_split[0], aml_offsets_split[1], aml_offsets_split[1] + '.inf'))
+    command.append("-y")
+    command.append(os.path.join(config["WORKSPACE"], "PreBuildReport.txt"))
+    command.append("--log=" + os.path.join(config["WORKSPACE"], "PreBuild.log"))
+
+    shell = True
+    if os.name == "posix":  # linux
+        shell = False
+
+    _, _, _, code = execute_script(command, config, shell=shell)
+    if code != 0:
+        print(" ".join(command))
+        print("Error re-generating PlatformOffset header files")
+        sys.exit(1)
+
+    # Build AmlGenOffset command to consume the *.offset.h and produce AmlOffsetTable.c for StaticSkuDataDxe use.
+
+    # Get destination path and filename from config
+    relative_file_path = os.path.normpath(config["STRIPPED_AML_OFFSETS_FILE_PATH"])     # get path relative to Platform/Intel
+    out_file_path = os.path.join(config["WORKSPACE_PLATFORM"], relative_file_path)      # full path to output file
+    out_file_dir = os.path.dirname(out_file_path)                                       # remove filename
+
+    out_file_root_ext = os.path.splitext(os.path.basename(out_file_path))               # root and extension of output file
+
+    # Get relative path for the generated offset.h file
+    relative_dsdt_file_path = os.path.normpath(config["DSDT_TABLE_FILE_PATH"])          # path relative to Platform/Intel
+    dsdt_file_root_ext = os.path.splitext(os.path.basename(relative_dsdt_file_path))    # root and extension of generated offset.h file
+
+    # Generate output directory if it doesn't exist
+    if not os.path.exists(out_file_dir):
+        os.mkdir(out_file_dir)
+
+    command = [sys.executable,
+               os.path.join(config["MIN_PACKAGE_TOOLS"], "AmlGenOffset", "AmlGenOffset.py"),
+               "-d", "--aml_filter", config["AML_FILTER"],
+               "-o", out_file_path,
+               os.path.join(config["BUILD_X64"], aml_offsets_split[0], aml_offsets_split[1], aml_offsets_split[1], "OUTPUT", os.path.dirname(relative_dsdt_file_path), dsdt_file_root_ext[0] + ".offset.h")]
+
+    # execute the command
+    _, _, _, code = execute_script(command, config, shell=shell)
+    if code != 0:
+        print(" ".join(command))
+        print("Error re-generating PlatformOffset header files")
+        sys.exit(1)
+
+    print("GenOffset done")
+
+
     return None
 
 def _merge_files(files, ofile):
