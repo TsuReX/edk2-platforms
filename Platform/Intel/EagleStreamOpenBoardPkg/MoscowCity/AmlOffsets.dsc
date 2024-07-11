@@ -36,6 +36,6 @@
   !include $(RP_PKG)/PlatformPkgConfig.dsc
 
 [Components.X64]
-  $(RP_PKG)/WilsonCityRvp/AmlOffsets/AmlOffsets.inf
+  $(RP_PKG)/MoscowCity/AmlOffsets/AmlOffsets.inf
 
 !include $(RP_PKG)/Include/Dsc/BuildOptions.dsc

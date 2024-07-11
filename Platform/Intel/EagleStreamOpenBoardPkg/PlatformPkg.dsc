@@ -597,16 +597,16 @@
   PlatformOpromPolicyLib|$(RP_PKG)/Library/PlatformOpromPolicyLibNull/PlatformOpromPolicyLibNull.inf
   CcExitLib|UefiCpuPkg/Library/CcExitLibNull/CcExitLibNull.inf
   AmdSvsmLib|UefiCpuPkg/Library/AmdSvsmLibNull/AmdSvsmLibNull.inf
-  CrcLib|WhitleyOpenBoardPkg/Library/BaseCrcLib/BaseCrcLib.inf
-  PlatformSpecificAcpiTableLib|WhitleyOpenBoardPkg/Library/PlatformSpecificAcpiTableLibNull/PlatformSpecificAcpiTableLibNull.inf
-  BuildAcpiTablesLib|WhitleyOpenBoardPkg/Library/BuildAcpiTablesLib/DxeBuildAcpiTablesLib.inf
-  AcpiPlatformTableLib|WhitleyOpenBoardPkg/Library/AcpiPlatformTableLib/AcpiPlatformLib.inf
+  CrcLib|EagleStreamOpenBoardPkg/Library/BaseCrcLib/BaseCrcLib.inf
+  PlatformSpecificAcpiTableLib|EagleStreamOpenBoardPkg/Library/PlatformSpecificAcpiTableLibNull/PlatformSpecificAcpiTableLibNull.inf
+  BuildAcpiTablesLib|EagleStreamOpenBoardPkg/Library/BuildAcpiTablesLib/DxeBuildAcpiTablesLib.inf
+  AcpiPlatformTableLib|EagleStreamOpenBoardPkg/Library/AcpiPlatformTableLib/AcpiPlatformLib.inf
 
 [LibraryClasses.Common.SEC, LibraryClasses.Common.PEI_CORE, LibraryClasses.Common.PEIM]
   FspWrapperApiLib|IntelFsp2WrapperPkg/Library/BaseFspWrapperApiLib/BaseFspWrapperApiLib.inf
   FspWrapperApiTestLib|IntelFsp2WrapperPkg/Library/PeiFspWrapperApiTestLib/PeiFspWrapperApiTestLib.inf
   FspWrapperPlatformLib|WhitleySiliconPkg/Library/FspWrapperPlatformLib/FspWrapperPlatformLib.inf
-  FspWrapperHobProcessLib|WhitleyOpenBoardPkg/Library/PeiFspWrapperHobProcessLib/PeiFspWrapperHobProcessLib.inf
+  FspWrapperHobProcessLib|EagleStreamOpenBoardPkg/Library/PeiFspWrapperHobProcessLib/PeiFspWrapperHobProcessLib.inf
 
   FspSwitchStackLib|IntelFsp2Pkg/Library/BaseFspSwitchStackLib/BaseFspSwitchStackLib.inf
   FspCommonLib|IntelFsp2Pkg/Library/BaseFspCommonLib/BaseFspCommonLib.inf
@@ -697,7 +697,7 @@
       PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
       NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNull.inf                 # Include FSP DynamicEx PCD
       NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNullFvLateSilicon.inf    # Include FvLateSilicon DynamicEx PCD
-      NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNullFvLateOpenBoard.inf  # Include FvLateBoard DynamicEx PCD
+#OY#      NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNullFvLateOpenBoard.inf  # Include FvLateBoard DynamicEx PCD
   }
   $(RP_PKG)/Universal/PeiExStatusCodeRouter/ExReportStatusCodeRouterPei.inf
   $(RP_PKG)/Universal/PeiExStatusCodeHandler/ExStatusCodeHandlerPei.inf

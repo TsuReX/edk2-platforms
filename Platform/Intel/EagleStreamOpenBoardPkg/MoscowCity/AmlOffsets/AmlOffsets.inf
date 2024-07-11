@@ -15,7 +15,7 @@
   VERSION_STRING                 = 1.0
 
 [Sources]
-  WhitleyOpenBoardPkg/Features/Acpi/AcpiTables/Dsdt/EPRPPlatform10nm.asl
+  EagleStreamOpenBoardPkg/Features/Acpi/AcpiTables/Dsdt/EPRPPlatform10nm.asl
 
 [Packages]
   MdePkg/MdePkg.dec
