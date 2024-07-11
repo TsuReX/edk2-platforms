@@ -466,11 +466,12 @@ def build(config):
     shell = True
     if os.name == "posix":
         shell = False
-
+    command.append("--debug=9")
+    print("---> DBG: ",command )
     _, _, _, exit_code = execute_script(command, config, shell=shell)
     if exit_code != 0:
         build_failed(config)
-
+    execute_script(["ls", "-l",  "/home/user/drive1/workspace/Build/EagleStreamOpenBoardPkg/RELEASE_GCC5/FV"], config, shell=False)
     # Additional build scripts for this platform
     result = build_ex(config)
     if result is not None and isinstance(result, dict):
@@ -487,6 +488,7 @@ def post_build(config):
     :returns: nothing
     """
     print("Running post_build to complete the build process.")
+    execute_script(["ls", "-l",  "/home/user/drive1/workspace/Build/EagleStreamOpenBoardPkg/RELEASE_GCC5/FV"], config, shell=False)
     board_fd = config["BOARD"].upper()
     final_fd = os.path.join(config["BUILD_DIR_PATH"], "FV",
                             "{}.fd".format(board_fd))
@@ -594,6 +596,8 @@ def pre_build_ex(config):
                 import_platform_lib(config["ADDITIONAL_SCRIPTS"],
                                     "pre_build_ex")
             functions = {"execute_script": execute_script}
+
+            print("---> DBG: pre_build_ex()")
             return platform_function(config, functions)
         except ImportError as error:
             print(config["ADDITIONAL_SCRIPTS"], str(error))
@@ -616,6 +620,9 @@ def build_ex(config):
                 import_platform_lib(config["ADDITIONAL_SCRIPTS"],
                                     "build_ex")
             functions = {"execute_script": execute_script}
+            print("---> DBG: config:\n", config,"\nfunctions:\n", functions)
+            print("---> DBG: build_ex()")
+
             return platform_function(config, functions)
         except ImportError as error:
             print("error", config["ADDITIONAL_SCRIPTS"], str(error))
