@@ -1,14 +1,7 @@
 
 
+
 [Defines]
-DEFINE PLATFORM_PKG             = MinPlatformPkg
-
-# 0x00000060 = (EFI_FIRMWARE_VOLUME_HEADER. HeaderLength + sizeof (EFI_FFS_FILE_HEADER))
-DEFINE FDF_FIRMWARE_HEADER_SIZE = 0x00000060
-
-SET gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv              = 0x90 # FV Header plus FFS header
-
-DEFINE VPD_HEADER_SIZE = 0x00000090
 
 !if $(FSP_MODE) == 0
   DEFINE FSP_BIN_DIR = Api
@@ -126,18 +119,18 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   BlockSize     = 0x1000
   NumBlocks     = 0x2E0
 
+  SET gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv     = 0x00000090 # FV Header plus FFS header
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize    = 0x000D0000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset  = 0x00000000
 
-  SET gUefiCpuPkgTokenSpaceGuid.PcdCpuMicrocodePatchAddress    = gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset         + gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv
+  SET gUefiCpuPkgTokenSpaceGuid.PcdCpuMicrocodePatchAddress    = gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset + gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv
   SET gUefiCpuPkgTokenSpaceGuid.PcdCpuMicrocodePatchRegionSize = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize - gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv
+  SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeBase  = gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase
+  SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeSize  = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
+  SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvBase   = gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase
+  SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvSize   = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
 
-  SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeBase = gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase
-  SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeSize = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
-  SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvBase  = gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeBase
-  SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvSize  = gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeSize
-
-  0x00000000|gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinarySize
+  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinarySize
   FV = FvMicrocode
 
 [FV.FvSecurityPreMemory]
@@ -288,18 +281,18 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 
 !include MinPlatformPkg/Include/Fdf/RuleInclude.fdf
 
-[Rule.Common.USER_DEFINED.ACPITABLE]
-  FILE FREEFORM = $(NAMED_GUID) {
-    RAW ACPI    Optional           |.acpi
-    RAW ASL     Optional           |.aml
-  }
+#[Rule.Common.USER_DEFINED.ACPITABLE]
+#  FILE FREEFORM = $(NAMED_GUID) {
+#    RAW ACPI    Optional           |.acpi
+#    RAW ASL     Optional           |.aml
+#  }
 
-[Rule.Common.DXE_RUNTIME_DRIVER.DRIVER_ACPITABLE]
-  FILE DRIVER = $(NAMED_GUID) {
-    DXE_DEPEX DXE_DEPEX Optional       $(INF_OUTPUT)/$(MODULE_NAME).depex
-    PE32      PE32                     $(INF_OUTPUT)/$(MODULE_NAME).efi
-    RAW ACPI  Optional                |.acpi
-    RAW ASL   Optional                |.aml
-    UI        STRING="$(MODULE_NAME)" Optional
-    VERSION   STRING="$(INF_VERSION)" Optional BUILD_NUM=$(BUILD_NUMBER)
-  }
+#[Rule.Common.DXE_RUNTIME_DRIVER.DRIVER_ACPITABLE]
+#  FILE DRIVER = $(NAMED_GUID) {
+#    DXE_DEPEX DXE_DEPEX Optional       $(INF_OUTPUT)/$(MODULE_NAME).depex
+#    PE32      PE32                     $(INF_OUTPUT)/$(MODULE_NAME).efi
+#    RAW ACPI  Optional                |.acpi
+#    RAW ASL   Optional                |.aml
+#    UI        STRING="$(MODULE_NAME)" Optional
+#    VERSION   STRING="$(INF_VERSION)" Optional BUILD_NUM=$(BUILD_NUMBER)
+#  }
