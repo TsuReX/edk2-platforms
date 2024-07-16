@@ -147,7 +147,7 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   #gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootSize
   #FV = FvUefiBoot
   #DATA = {0x00000044}
- 
+
 ################################################################################
 [FD.Binary]
   BaseAddress   = 0xFF000000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase
@@ -200,34 +200,40 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeSize = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
   SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvBase  = gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeBase
   SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvSize  = gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeSize
- 
-  gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromSize
+
+  #gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromSize
   #FV = FvOprom
-  DATA = {0x00000055}
-  
-  gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionSize
+  #DATA = {0x00000055}
+
+  #gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionSize
   #FV = FvAcm
-  DATA = {0x00000066}
-  
+  #DATA = {0x00000066}
+
+  0x00000000|(gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromSize + gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionSize)
+  DATA = {0x00000022}
+
   gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
   FV = FvMicrocode
 
-  gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdOffset|gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdSize
-  #FV = FvVPD
-  DATA = {0x00000077}
-  
-  gCpPlatFlashTokenSpaceGuid.PcdFlashFvWheaOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvWheaSize
-  #FV = FvWhea
-  DATA = {0x00000088}
+  (gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset+gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize)| gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinarySize - ((gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset+gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize))
+  DATA = {0x00000033}
 
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashNvStorageVariableOffset|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableSize
-  !include EagleStreamOpenBoardPkg/Include/Fdf/NvStorage512K.fdf
-  gPlatformModuleTokenSpaceGuid.PcdFlashFvNvStorageEventLogOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvNvStorageEventLogSize
-  DATA = { 0xFF } # Hack to ensure build doesn't treat the next PCD as Base/Size to be written
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingOffset|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingSize
-  !include EagleStreamOpenBoardPkg/Include/Fdf/CommonNvStorageFtwWorking.fdf
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareOffset|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareSize
-  DATA = { 0xFF } # Hack to ensure build doesn't treat the next PCD as Base/Size to be written
+  #gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdOffset|gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdSize
+  #FV = FvVPD
+  #DATA = {0x00000077}
+
+  #gCpPlatFlashTokenSpaceGuid.PcdFlashFvWheaOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvWheaSize
+  #FV = FvWhea
+  #DATA = {0x00000088}
+
+  #gMinPlatformPkgTokenSpaceGuid.PcdFlashNvStorageVariableOffset|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageVariableSize
+  #!include EagleStreamOpenBoardPkg/Include/Fdf/NvStorage512K.fdf
+  #gPlatformModuleTokenSpaceGuid.PcdFlashFvNvStorageEventLogOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvNvStorageEventLogSize
+  #DATA = { 0xFF } # Hack to ensure build doesn't treat the next PCD as Base/Size to be written
+  #gMinPlatformPkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingOffset|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwWorkingSize
+  #!include EagleStreamOpenBoardPkg/Include/Fdf/CommonNvStorageFtwWorking.fdf
+  #gMinPlatformPkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareOffset|gEfiMdeModulePkgTokenSpaceGuid.PcdFlashNvStorageFtwSpareSize
+  #DATA = { 0xFF } # Hack to ensure build doesn't treat the next PCD as Base/Size to be written
 
 [FV.FvSecurityPreMemory]
   !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
