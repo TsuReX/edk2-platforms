@@ -149,8 +149,7 @@ def build_ex(config, functions):
     secpei_fd = os.path.join(fv_path, "SECPEI.fd")
     board_fd = config["BOARD"].upper()
     final_fd = os.path.join(fv_path, "{}.fd".format(board_fd))
-#    _merge_files((binary_fd, main_fd, secpei_fd), final_fd)
-    _merge_files((secpei_fd,), final_fd)
+    _merge_files((binary_fd, main_fd, secpei_fd), final_fd)
     return None
 
 
