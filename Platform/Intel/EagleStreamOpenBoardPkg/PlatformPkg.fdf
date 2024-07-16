@@ -39,11 +39,11 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 ################################################################################
 
 [FD.SecPei]
-  BaseAddress   = 0xFFCA0000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiBase                 #The base address of the FLASH Device
-  Size          = 0x00360000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiSize                 #The size in bytes of the FLASH Device
+  BaseAddress   = 0xFFBB0000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiBase                 #The base address of the FLASH Device
+  Size          = 0x00450000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiSize                 #The size in bytes of the FLASH Device
   ErasePolarity = 1
   BlockSize     = 0x1000
-  NumBlocks     = 0x360
+  NumBlocks     = 0x450
 
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize           = 0x00010000 # BaseAddress + PcdFlashFvBspSize + PcdFlashFvPostMemorySize must = 0xFFD00000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemorySize    = 0x00010000 # BaseAddress + PcdFlashFvBspSize + PcdFlashFvPostMemorySize must = 0xFFD00000
@@ -103,10 +103,10 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 
 [FD.Main]
   BaseAddress   = 0xFF2E0000     | gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainBase        # The base address of the FLASH Device
-  Size          = 0x009C0000     | gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize        # The size in bytes of the FLASH Device
+  Size          = 0x008D0000     | gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize        # The size in bytes of the FLASH Device
   ErasePolarity = 1
   BlockSize     = 0x1000
-  NumBlocks     = 0x9C0
+  NumBlocks     = 0x8D0
 
   0x00000000|gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize
   DATA = {0x00000011}

@@ -15,7 +15,7 @@
 # Note Whitley unintuitively has multiple "FD" in a single BIOS flash region, so the base should be for FD.SecPei
 # and not the basis of the BIOS region for the FLASH device.
 #
-DEFINE FLASH_BASE                                                   = 0xFFCA0000
+DEFINE FLASH_BASE                                                   = 0xFFBB0000
 
 SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSOffset              = 0x00020000  # Flash addr (0xFF020000)
 SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize                = 0x00040000  #
