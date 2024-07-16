@@ -115,20 +115,20 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   BlockSize     = 0x1000
   NumBlocks     = 0x9C0
 
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize      = 0x00010000
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize        = 0x00230000
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootSize      = 0x0004C000
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedSize      = gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize      = 0x00010000
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize        = 0x00230000
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootSize      = 0x0004C000
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedSize      = gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
 
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedOffset    = 0x00000000
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityOffset    = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedOffset  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedSize
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootOffset      = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityOffset  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootOffset    = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootOffset    + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize
-  
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedBase      = gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainBase         + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedOffset
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityBase      = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedBase  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedSize
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootBase        = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityBase  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootBase      = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootBase    + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedOffset    = 0x00000000
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityOffset    = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedOffset  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedSize
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootOffset      = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityOffset  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootOffset    = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootOffset    + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize
+
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedBase      = gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainBase         + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedOffset
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityBase      = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedBase  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedSize
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootBase        = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityBase  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
+  #SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootBase      = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootBase    + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize
 
   0x00000000|gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize
   DATA = {0x00000011}
