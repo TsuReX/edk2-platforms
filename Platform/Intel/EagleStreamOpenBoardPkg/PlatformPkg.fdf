@@ -129,21 +129,24 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootBase        = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityBase  + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootBase      = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootBase    + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize
 
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedSize
-  #FV = FvAdvance
+  0x00000000|gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize
   DATA = {0x00000011}
-  
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
+
+  #gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvAdvancedSize
+  #FV = FvAdvance
+  #DATA = {0x00000011}
+
+  #gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecurityOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvSecuritySize
   #FV = FvSecurity
-  DATA = {0x00000022}
-  
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize
+  #DATA = {0x00000022}
+
+  #gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvOsBootSize
   #FV = FvOsBoot
-  DATA = {0x00000033}
-  
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootSize
+  #DATA = {0x00000033}
+
+  #gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvUefiBootSize
   #FV = FvUefiBoot
-  DATA = {0x00000044}
+  #DATA = {0x00000044}
  
 ################################################################################
 [FD.Binary]
