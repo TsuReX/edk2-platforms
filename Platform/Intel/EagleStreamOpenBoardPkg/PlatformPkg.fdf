@@ -1,4 +1,5 @@
 
+
 [Defines]
 DEFINE PLATFORM_PKG             = MinPlatformPkg
 
@@ -170,7 +171,7 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 
   SET gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromOffset                  = 0x00000000
   SET gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionOffset              = gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromOffset                + gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromSize
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset           = gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionOffset            + gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionSize
+  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset           = 0x00000000
   SET gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdOffset                 = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset         + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
   SET gCpPlatFlashTokenSpaceGuid.PcdFlashFvWheaOffset                   = gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdOffset               + gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdSize
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashNvStorageVariableOffset     = gCpPlatFlashTokenSpaceGuid.PcdFlashFvWheaOffset                 + gCpPlatFlashTokenSpaceGuid.PcdFlashFvWheaSize
@@ -201,6 +202,15 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvBase  = gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeBase
   SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvSize  = gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeSize
 
+  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinarySize
+  FV = FvMicrocode
+
+  #0x00000000|(gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromSize + gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionSize)
+  #DATA = {0x00000022}
+
+  #(gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset+gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize)| gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinarySize - ((gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset+gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize))
+  #DATA = {0x00000033}
+
   #gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromSize
   #FV = FvOprom
   #DATA = {0x00000055}
@@ -208,15 +218,6 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   #gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionSize
   #FV = FvAcm
   #DATA = {0x00000066}
-
-  0x00000000|(gCpPlatFlashTokenSpaceGuid.PcdFlashFvOpromSize + gCpPlatFlashTokenSpaceGuid.PcdFlashFvAcmRegionSize)
-  DATA = {0x00000022}
-
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
-  FV = FvMicrocode
-
-  (gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset+gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize)| gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinarySize - ((gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset+gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize))
-  DATA = {0x00000033}
 
   #gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdOffset|gPlatformModuleTokenSpaceGuid.PcdFlashFvVpdSize
   #FV = FvVPD
