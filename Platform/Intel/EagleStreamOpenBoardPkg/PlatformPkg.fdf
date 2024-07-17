@@ -1,6 +1,3 @@
-
-
-
 [Defines]
 
 !if $(FSP_MODE) == 0
@@ -45,15 +42,19 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   BlockSize     = 0x1000
   NumBlocks     = 0x450
 
+  SET gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv     = 0x00000090 # FV Header plus FFS header
+
+  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize     = 0x000D0000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize           = 0x00010000 # BaseAddress + PcdFlashFvBspSize + PcdFlashFvPostMemorySize must = 0xFFD00000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemorySize    = 0x00010000 # BaseAddress + PcdFlashFvBspSize + PcdFlashFvPostMemorySize must = 0xFFD00000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize          = 0x00040000 # Size must match WhitleyFspPkg.fdf content
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMSize          = 0x00221000 # Size must match WhitleyFspPkg.fdf content
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTSize          = 0x00006000 # Size must match WhitleyFspPkg.fdf content
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspPreMemorySize  = 0x00010000
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPreMemorySize     = gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemorySize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspPreMemorySize
+  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPreMemorySize     = gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiSize - 0x000D0000 - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemorySize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspPreMemorySize
 
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspOffset           = 0x00000000
+  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset     = 0x00000000
+  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspOffset           = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset     + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemoryOffset    = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspOffset           + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSOffset          = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemoryOffset    + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemorySize
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMOffset          = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSOffset          + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize
@@ -78,6 +79,16 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   SET gIntelFsp2WrapperTokenSpaceGuid.PcdFspsBaseAddress = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSBase
   SET gIntelFsp2WrapperTokenSpaceGuid.PcdFspmBaseAddress = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMBase
   SET gIntelFsp2WrapperTokenSpaceGuid.PcdFsptBaseAddress = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTBase
+
+  SET gUefiCpuPkgTokenSpaceGuid.PcdCpuMicrocodePatchAddress    = gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiBase + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset + gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv
+  SET gUefiCpuPkgTokenSpaceGuid.PcdCpuMicrocodePatchRegionSize = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize - gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv
+  SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeBase  = gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiBase + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset
+  SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeSize  = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
+  SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvBase   = gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiBase + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset
+  SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvSize   = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
+
+  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
+  FV = FvMicrocode
 
   gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize
   FV = FvBsp
@@ -119,19 +130,8 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   BlockSize     = 0x1000
   NumBlocks     = 0x2E0
 
-  SET gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv     = 0x00000090 # FV Header plus FFS header
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize    = 0x000D0000
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset  = 0x00000000
-
-  SET gUefiCpuPkgTokenSpaceGuid.PcdCpuMicrocodePatchAddress    = gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase + gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset + gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv
-  SET gUefiCpuPkgTokenSpaceGuid.PcdCpuMicrocodePatchRegionSize = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize - gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv
-  SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeBase  = gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase
-  SET gCpuUncoreTokenSpaceGuid.PcdFlashNvStorageMicrocodeSize  = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
-  SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvBase   = gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinaryBase
-  SET gIntelSiliconPkgTokenSpaceGuid.PcdFlashMicrocodeFvSize   = gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize
-
-  gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeOffset|gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinarySize
-  FV = FvMicrocode
+  0x00000000|gCpPlatFlashTokenSpaceGuid.PcdFlashFvBinarySize
+  DATA = {0x00000022}
 
 [FV.FvSecurityPreMemory]
   !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf

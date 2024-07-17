@@ -17,9 +17,9 @@
 #
 DEFINE FLASH_BASE                                                   = 0xFFBB0000
 
-SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSOffset              = 0x00020000  # Flash addr (0xFF020000)
+SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSOffset              = 0x000F0000  # Flash addr (0xFF020000)
 SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize                = 0x00040000  #
-SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMOffset              = 0x00060000  # Flash addr (0xFF060000)
+SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMOffset              = 0x00130000  # Flash addr (0xFF060000)
 SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMSize                = 0x00221000  #
-SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTOffset              = 0x00281000  # Flash addr (0xFF281000)
+SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTOffset              = 0x00351000  # Flash addr (0xFF281000)
 SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTSize                = 0x00006000  #
