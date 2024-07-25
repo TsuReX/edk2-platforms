@@ -36,20 +36,20 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 ################################################################################
 
 [FD.SecPei]
-  BaseAddress   = 0xFFBB0000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiBase                 #The base address of the FLASH Device
-  Size          = 0x00450000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiSize                 #The size in bytes of the FLASH Device
+  BaseAddress   = 0xFFB30000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiBase                 #The base address of the FLASH Device
+  Size          = 0x004D0000   |gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiSize                 #The size in bytes of the FLASH Device
   ErasePolarity = 1
   BlockSize     = 0x1000
-  NumBlocks     = 0x450
+  NumBlocks     = 0x4D0
 
   SET gMinPlatformPkgTokenSpaceGuid.PcdMicrocodeOffsetInFv     = 0x00000090 # FV Header plus FFS header
 
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvMicrocodeSize     = 0x000D0000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize           = 0x00010000 # BaseAddress + PcdFlashFvBspSize + PcdFlashFvPostMemorySize must = 0xFFD00000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemorySize    = 0x00010000 # BaseAddress + PcdFlashFvBspSize + PcdFlashFvPostMemorySize must = 0xFFD00000
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize          = 0x00040000 # Size must match WhitleyFspPkg.fdf content
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMSize          = 0x00221000 # Size must match WhitleyFspPkg.fdf content
-  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTSize          = 0x00006000 # Size must match WhitleyFspPkg.fdf content
+  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize          = 0x00080000 # Size must match WhitleyFspPkg.fdf content
+  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMSize          = 0x002E8000 # Size must match WhitleyFspPkg.fdf content
+  SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTSize          = 0x00008000 # Size must match WhitleyFspPkg.fdf content
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspPreMemorySize  = 0x00010000
   SET gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPreMemorySize     = gCpPlatFlashTokenSpaceGuid.PcdFlashFdSecPeiSize - 0x000D0000 - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemorySize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspMSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspTSize - gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspPreMemorySize
 
@@ -91,10 +91,10 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   FV = FvMicrocode
 
   gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvBspSize
-  FV = FvBsp
+  #FV = FvBsp
 
   gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemoryOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPostMemorySize
-  FV = FvPostMemory
+  #FV = FvPostMemory
 
   gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvFspSSize
   FILE = $(FSP_BIN_PKG)/Fsp_Rebased_S.fd
@@ -110,14 +110,14 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 
   gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPreMemoryOffset|gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPreMemorySize
   FV = FvPreMemory
-################################################################################
+######################-##########################################################
 
 [FD.Main]
   BaseAddress   = 0xFF2E0000     | gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainBase        # The base address of the FLASH Device
-  Size          = 0x008D0000     | gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize        # The size in bytes of the FLASH Device
+  Size          = 0x00850000     | gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize        # The size in bytes of the FLASH Device
   ErasePolarity = 1
   BlockSize     = 0x1000
-  NumBlocks     = 0x8D0
+  NumBlocks     = 0x850
 
   0x00000000|gCpPlatFlashTokenSpaceGuid.PcdFlashFdMainSize
   DATA = {0x00000011}
@@ -145,8 +145,8 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   INF  MdeModulePkg/Core/Pei/PeiMain.inf
 
   INF  MdeModulePkg/Universal/PCD/Pei/Pcd.inf
-  INF  EagleStreamOpenBoardPkg/Universal/PeiExStatusCodeRouter/ExReportStatusCodeRouterPei.inf
-  INF  EagleStreamOpenBoardPkg/Universal/PeiExStatusCodeHandler/ExStatusCodeHandlerPei.inf
+#  INF  EagleStreamOpenBoardPkg/Universal/PeiExStatusCodeRouter/ExReportStatusCodeRouterPei.inf
+#  INF  EagleStreamOpenBoardPkg/Universal/PeiExStatusCodeHandler/ExStatusCodeHandlerPei.inf
 
   INF  UefiCpuPkg/CpuIoPei/CpuIoPei.inf
 
@@ -157,11 +157,11 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 
   INF  WhitleySiliconPkg/Pch/SouthClusterLbg/MultiPch/Pei/MultiPchPei.inf
 
-  FILE PEIM = ac4b7f1b-e057-47d3-b2b5-1137493c0f38 {
-    SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ac4b7f1b-e057-47d3-b2b5-1137493c0f38DynamicSiLibrary.depex
-    SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ac4b7f1b-e057-47d3-b2b5-1137493c0f38DynamicSiLibrary.efi
-    SECTION UI = "DynamicSiLibraryPei"
-  }
+#  FILE PEIM = ac4b7f1b-e057-47d3-b2b5-1137493c0f38 {
+#    SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ac4b7f1b-e057-47d3-b2b5-1137493c0f38DynamicSiLibrary.depex
+#    SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ac4b7f1b-e057-47d3-b2b5-1137493c0f38DynamicSiLibrary.efi
+#    SECTION UI = "DynamicSiLibraryPei"
+#  }
 
   INF  EagleStreamOpenBoardPkg/Features/Variable/PlatformVariable/Pei/PlatformVariableInitPei.inf
 
@@ -178,11 +178,11 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 
   INF  MinPlatformPkg/PlatformInit/ReportFv/ReportFvPei.inf
 
-  FILE PEIM = ca8efb69-d7dc-4e94-aad6-9fb373649161 {
-    SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ca8efb69-d7dc-4e94-aad6-9fb373649161SiliconPolicyInitPreAndPostMem.depex
-    SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ca8efb69-d7dc-4e94-aad6-9fb373649161SiliconPolicyInitPreAndPostMem.efi
-    SECTION UI = "SiliconPolicyInitPreAndPostMem"
-  }
+#  FILE PEIM = ca8efb69-d7dc-4e94-aad6-9fb373649161 {
+#    SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ca8efb69-d7dc-4e94-aad6-9fb373649161SiliconPolicyInitPreAndPostMem.depex
+#    SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ca8efb69-d7dc-4e94-aad6-9fb373649161SiliconPolicyInitPreAndPostMem.efi
+#    SECTION UI = "SiliconPolicyInitPreAndPostMem"
+#  }
 
   INF  MinPlatformPkg/PlatformInit/SiliconPolicyPei/SiliconPolicyPeiPreMem.inf
 
@@ -192,27 +192,27 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 
   INF  RuleOverride = LzmaCompress UefiCpuPkg/CpuMpPei/CpuMpPei.inf
 
-  !if $(FSP_MODE) == 0
-    FILE PEIM = 8F7F3D20-9823-42DD-9FF7-53DAC93EF407 {
-      SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/8F7F3D20-9823-42DD-9FF7-53DAC93EF407CsrPseudoOffsetInitPeim.depex
-      SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/8F7F3D20-9823-42DD-9FF7-53DAC93EF407CsrPseudoOffsetInitPeim.efi
-      SECTION UI = "CsrPseudoOffsetInitPeim"
-    }
-    FILE PEIM = 2C6CACC6-6C3C-4AA7-B2DE-384DAE2B0352 {
-      SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/2C6CACC6-6C3C-4AA7-B2DE-384DAE2B0352RegAccessPeim.depex
-      SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/2C6CACC6-6C3C-4AA7-B2DE-384DAE2B0352RegAccessPeim.efi
-      SECTION UI = "RegAccessPeim"
-    }
-    FILE PEIM = C7D9BAF4-DC9D-4B22-B4E7-7500EAA7B67F {
-      SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/C7D9BAF4-DC9D-4B22-B4E7-7500EAA7B67FSiliconDataInitPeim.depex
-      SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/C7D9BAF4-DC9D-4B22-B4E7-7500EAA7B67FSiliconDataInitPeim.efi
-      SECTION UI = "SiliconDataInitPeim"
-    }
-    INF  IntelFsp2WrapperPkg/FspmWrapperPeim/FspmWrapperPeim.inf
-    INF  IntelFsp2WrapperPkg/FspsWrapperPeim/FspsWrapperPeim.inf
-    INF  MdeModulePkg/Core/DxeIplPeim/DxeIpl.inf
-    INF  EagleStreamOpenBoardPkg/Platform/Pei/DummyPchSpi/DummyPchSpi.inf
-  !endif
+#  !if $(FSP_MODE) == 0
+#    FILE PEIM = 8F7F3D20-9823-42DD-9FF7-53DAC93EF407 {
+#      SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/8F7F3D20-9823-42DD-9FF7-53DAC93EF407CsrPseudoOffsetInitPeim.depex
+#      SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/8F7F3D20-9823-42DD-9FF7-53DAC93EF407CsrPseudoOffsetInitPeim.efi
+#      SECTION UI = "CsrPseudoOffsetInitPeim"
+#    }
+#    FILE PEIM = 2C6CACC6-6C3C-4AA7-B2DE-384DAE2B0352 {
+#      SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/2C6CACC6-6C3C-4AA7-B2DE-384DAE2B0352RegAccessPeim.depex
+#      SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/2C6CACC6-6C3C-4AA7-B2DE-384DAE2B0352RegAccessPeim.efi
+#      SECTION UI = "RegAccessPeim"
+#    }
+#    FILE PEIM = C7D9BAF4-DC9D-4B22-B4E7-7500EAA7B67F {
+#      SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/C7D9BAF4-DC9D-4B22-B4E7-7500EAA7B67FSiliconDataInitPeim.depex
+#      SECTION Align = 32 PE32 = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/C7D9BAF4-DC9D-4B22-B4E7-7500EAA7B67FSiliconDataInitPeim.efi
+#      SECTION UI = "SiliconDataInitPeim"
+#    }
+#    INF  IntelFsp2WrapperPkg/FspmWrapperPeim/FspmWrapperPeim.inf
+#    INF  IntelFsp2WrapperPkg/FspsWrapperPeim/FspsWrapperPeim.inf
+#    INF  MdeModulePkg/Core/DxeIplPeim/DxeIpl.inf
+#    INF  EagleStreamOpenBoardPkg/Platform/Pei/DummyPchSpi/DummyPchSpi.inf
+#  !endif
 
   FILE FV_IMAGE = 40ab290f-8494-41cf-b302-31b178b4ce0b {
     SECTION FV_IMAGE = FvSecurityPreMemory
@@ -235,36 +235,36 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 #
 # FvPostMemory includes common hardware, common core variable services, load and invoke DXE etc
 #
-[FV.FvPostMemoryUncompressed]
-  !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
-  FvNameGuid         = B4705B4B-0BE6-4BDB-A83A-51CAD2345CEA
+#[FV.FvPostMemoryUncompressed]
+#  !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
+#  FvNameGuid         = B4705B4B-0BE6-4BDB-A83A-51CAD2345CEA
 
-[FV.FvPostMemory]
-  !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
-  FvNameGuid         = 3298afc4-c484-47f1-a65a-5917a54b5e8c
-
-  FILE FV_IMAGE = B4705B4B-0BE6-4BDB-A83A-51CAD2345CEA {
-    SECTION GUIDED EE4E5898-3914-4259-9D6E-DC7BD79403CF PROCESSING_REQUIRED = TRUE {
-      SECTION FV_IMAGE = FvPostMemoryUncompressed
-    }
-  }
+#[FV.FvPostMemory]
+#  !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
+#  FvNameGuid         = 3298afc4-c484-47f1-a65a-5917a54b5e8c
+#
+# FILE FV_IMAGE = B4705B4B-0BE6-4BDB-A83A-51CAD2345CEA {
+#    SECTION GUIDED EE4E5898-3914-4259-9D6E-DC7BD79403CF PROCESSING_REQUIRED = TRUE {
+#      SECTION FV_IMAGE = FvPostMemoryUncompressed
+#    }
+#  }
 
 #
 # FvBsp includes board specific components
 #
-[FV.FvBspUncompressed]
-  !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
-  FvNameGuid         = e4c65347-fd90-4143-8a41-113e1015fe07
+#[FV.FvBspUncompressed]
+#  !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
+#  FvNameGuid         = e4c65347-fd90-4143-8a41-113e1015fe07
 
-[FV.FvBsp]
-  !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
-  FvNameGuid         = 9e151cf3-ca90-444f-b33b-a9941cbc772f
+#[FV.FvBsp]
+#  !include MinPlatformPkg/Include/Fdf/CommonSpiFvHeaderInfo.fdf
+#  FvNameGuid         = 9e151cf3-ca90-444f-b33b-a9941cbc772f
 
-  FILE FV_IMAGE = e4c65347-fd90-4143-8a41-113e1015fe07 {
-    SECTION GUIDED EE4E5898-3914-4259-9D6E-DC7BD79403CF PROCESSING_REQUIRED = TRUE {
-      SECTION FV_IMAGE = FvBspUncompressed
-    }
-  }
+#  FILE FV_IMAGE = e4c65347-fd90-4143-8a41-113e1015fe07 {
+#    SECTION GUIDED EE4E5898-3914-4259-9D6E-DC7BD79403CF PROCESSING_REQUIRED = TRUE {
+#      SECTION FV_IMAGE = FvBspUncompressed
+#    }
+#  }
 
 # FV for all Microcode Updates.
 #
@@ -273,11 +273,11 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   LOCK_STATUS        = FALSE
   FvNameGuid         = D2C29BA7-3809-480F-9C3D-DE389C61425A
 
-!if $(CPUTARGET) == "CPX"
-  INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/CpxMicrocode/MicrocodeUpdates.inf
-!else
+#  INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/CpxMicrocode/MicrocodeUpdates.inf
   INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/IcxMicrocode/MicrocodeUpdates.inf
-!endif
+#  INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/Microcode/MicrocodeUpdates.inf
+
+
 
 !include MinPlatformPkg/Include/Fdf/RuleInclude.fdf
 

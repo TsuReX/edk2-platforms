@@ -25,19 +25,25 @@
   VPD_TOOL_GUID                       = 8C3D856A-9BE6-468E-850A-24F7A8D38E08
   FLASH_DEFINITION                    = $(RP_PKG)/PlatformPkg.fdf
   PLATFORM_SI_PACKAGE                 = ClientOneSiliconPkg
+#  DEFINE      PLATFORM_SI_BIN_PACKAGE = EaglestreamSiliconBinPkg
   DEFINE      PLATFORM_SI_BIN_PACKAGE = WhitleySiliconBinPkg
+
   PEI_ARCH                            = IA32
   DXE_ARCH                            = X64
 
-!if $(CPUTARGET) == "CPX"
-  DEFINE FSP_BIN_PKG            = CedarIslandFspBinPkg
-  DEFINE IIO_INSTANCE           = Skx
-!elseif $(CPUTARGET) == "ICX"
+#!if $(CPUTARGET) == "CPX"
+#  DEFINE FSP_BIN_PKG            = CedarIslandFspBinPkg
+#  DEFINE IIO_INSTANCE           = Skx
+#!elseif $(CPUTARGET) == "ICX"
   DEFINE FSP_BIN_PKG            = WhitleyFspBinPkg
   DEFINE IIO_INSTANCE           = Icx
-!else
-  DEFINE IIO_INSTANCE           = UnknownCpu
-!endif
+#!else
+#  DEFINE IIO_INSTANCE           = UnknownCpu
+#!endif
+
+#  DEFINE FSP_BIN_PKG            = EagleStreamFspBinPkg
+#  DEFINE IIO_INSTANCE           = Icx
+
 
 #
 # MinPlatform common include for required feature PCD
@@ -77,8 +83,8 @@
 [Packages]
   IntelFsp2WrapperPkg/IntelFsp2WrapperPkg.dec
 
-  !include $(FSP_BIN_PKG)/DynamicExPcd.dsc
-  !include $(FSP_BIN_PKG)/DynamicExPcdFvLateSilicon.dsc
+#  !include $(FSP_BIN_PKG)/DynamicExPcd.dsc
+#  !include $(FSP_BIN_PKG)/DynamicExPcdFvLateSilicon.dsc
   !include $(RP_PKG)/DynamicExPcd.dsc
 
   !include $(RP_PKG)/Uba/UbaCommon.dsc
@@ -695,12 +701,12 @@
       # Beware of circular dependencies on PCD if you want to use another DebugLib instance.
       #
       PcdLib|MdePkg/Library/BasePcdLibNull/BasePcdLibNull.inf
-      NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNull.inf                 # Include FSP DynamicEx PCD
-      NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNullFvLateSilicon.inf    # Include FvLateSilicon DynamicEx PCD
-#OY#      NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNullFvLateOpenBoard.inf  # Include FvLateBoard DynamicEx PCD
+#      NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNull.inf                 # Include FSP DynamicEx PCD
+#      NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNullFvLateSilicon.inf    # Include FvLateSilicon DynamicEx PCD
+#      NULL|$(FSP_BIN_PKG)/Library/FspPcdListLibNull/FspPcdListLibNullFvLateOpenBoard.inf  # Include FvLateBoard DynamicEx PCD
   }
   $(RP_PKG)/Universal/PeiExStatusCodeRouter/ExReportStatusCodeRouterPei.inf
-  $(RP_PKG)/Universal/PeiExStatusCodeHandler/ExStatusCodeHandlerPei.inf
+#  $(RP_PKG)/Universal/PeiExStatusCodeHandler/ExStatusCodeHandlerPei.inf
   $(RP_PKG)/Universal/PeiInterposerToSvidMap/PeiInterposerToSvidMap.inf
 
   $(RP_PKG)/Features/Variable/PlatformVariable/Pei/PlatformVariableInitPei.inf
@@ -809,7 +815,8 @@
 
   $(PLATFORM_PKG)/FspWrapper/SaveMemoryConfig/SaveMemoryConfig.inf
 
-  $(PLATFORM_SI_BIN_PACKAGE)/CpxMicrocode/MicrocodeUpdates.inf
+#  $(PLATFORM_SI_BIN_PACKAGE)/Microcode/MicrocodeUpdates.inf
+#  $(PLATFORM_SI_BIN_PACKAGE)/CpxMicrocode/MicrocodeUpdates.inf
   $(PLATFORM_SI_BIN_PACKAGE)/IcxMicrocode/MicrocodeUpdates.inf
 
   MdeModulePkg/Bus/Pci/PciSioSerialDxe/PciSioSerialDxe.inf
