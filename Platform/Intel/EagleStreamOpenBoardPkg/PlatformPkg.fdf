@@ -274,8 +274,8 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
   FvNameGuid         = D2C29BA7-3809-480F-9C3D-DE389C61425A
 
 #  INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/CpxMicrocode/MicrocodeUpdates.inf
-  INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/IcxMicrocode/MicrocodeUpdates.inf
-#  INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/Microcode/MicrocodeUpdates.inf
+#  INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/IcxMicrocode/MicrocodeUpdates.inf
+  INF RuleOverride = MICROCODE $(PLATFORM_SI_BIN_PACKAGE)/Microcode/MicrocodeUpdates.inf
 
 
 
