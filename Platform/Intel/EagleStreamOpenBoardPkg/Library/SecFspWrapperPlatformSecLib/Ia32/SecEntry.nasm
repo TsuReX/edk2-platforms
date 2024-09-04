@@ -16,6 +16,7 @@ SECTION .text
 extern   ASM_PFX(CallPeiCoreEntryPoint)
 extern   ASM_PFX(FsptUpdDataPtr)
 extern   ASM_PFX(BoardBeforeTempRamInit)
+extern setup_car
 
 ; Pcds
 extern   ASM_PFX(PcdGet32 (PcdFlashFvFspTBase))
@@ -129,8 +130,10 @@ ProtectedModeEntryPoint:
   ;
   ; Early board hooks
   ;
-  mov     esp, BoardBeforeTempRamInitRet
-  jmp     ASM_PFX(BoardBeforeTempRamInit)
+  mov ebp, setup_car_ret
+  jmp setup_car
+;  mov     esp, BoardBeforeTempRamInitRet
+;  jmp     ASM_PFX(BoardBeforeTempRamInit)
 
 BoardBeforeTempRamInitRet:
 
@@ -213,6 +216,7 @@ TempRamInitDone:
   cmp eax, 0              ;Check if EFI_SUCCESS retuned.
   jnz FspApiFailed
 
+  setup_car_ret:
   ;   ECX: start of range
   ;   EDX: end of range
 CallSecFspInit:
