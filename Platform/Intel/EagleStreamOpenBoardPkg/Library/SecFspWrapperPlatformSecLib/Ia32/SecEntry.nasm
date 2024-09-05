@@ -130,6 +130,9 @@ ProtectedModeEntryPoint:
   ;
   ; Early board hooks
   ;
+
+  mov al, 0x80
+  out 0xAA, al
   mov ebp, setup_car_ret
   jmp setup_car
 ;  mov     esp, BoardBeforeTempRamInitRet
@@ -217,6 +220,8 @@ TempRamInitDone:
   jnz FspApiFailed
 
   setup_car_ret:
+  mov al, 0x80
+  out 0xBB, al
   ;   ECX: start of range
   ;   EDX: end of range
 CallSecFspInit:

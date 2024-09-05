@@ -13,6 +13,7 @@
 #include <Library/SerialPortLib.h>
 #include <Library/SecBoardInitLib.h>
 #include <Library/TestPointCheckLib.h>
+#include <Library/IoLib.h>
 
 /**
   Platform initialization.
@@ -42,6 +43,12 @@ PlatformInit (
   DEBUG ((DEBUG_INFO, "StartOfRange - 0x%x\n", StartOfRange));
   DEBUG ((DEBUG_INFO, "EndOfRange - 0x%x\n", EndOfRange));
 
+    while(1) {
+	IoWrite8(0x80,0x11);
+	IoWrite8(0x80,0x22);
+	IoWrite8(0x80,0x33);
+	IoWrite8(0x80,0x44);
+    }
   BoardAfterTempRamInit ();
 
   TestPointTempMemoryFunction (StartOfRange, EndOfRange);

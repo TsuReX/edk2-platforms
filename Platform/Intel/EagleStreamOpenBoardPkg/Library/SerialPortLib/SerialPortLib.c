@@ -524,8 +524,10 @@ SerialPortInitialize (
   UINT8   Data;
   UINT16  ComBase;
 
+  IoWrite8(0x80,0xCC);
   ComBase = (UINT16)PcdGet64 (PcdSerialRegisterBase);
   InitializeSio();
+  IoWrite8(0x80,0xDD);
   //
   // Some init is done by the platform status code initialization.
   //
@@ -557,6 +559,7 @@ SerialPortInitialize (
   OutputData = (UINT8) ((~DLAB << 7) | ((gBreakSet << 6) | ((gParity << 3) | ((gStop << 2) | Data))));
   IoWrite8 (ComBase + LCR_OFFSET, OutputData);
 
+  IoWrite8(0x80,0xEE);
   return RETURN_SUCCESS;
 }
 
