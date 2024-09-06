@@ -35,10 +35,10 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   IntelSiliconPkg/IntelSiliconPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [Pcd]
   gMinPlatformPkgTokenSpaceGuid.PcdFlashFvPreMemoryBase           ## CONSUMES

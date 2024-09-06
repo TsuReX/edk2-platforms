@@ -1,5 +1,5 @@
 ## @file
-#  FDF file for calculation of FSP rebase addresses for WhitleyOpenBoardPkg
+#  FDF file for calculation of FSP rebase addresses for EagleStreamOpenBoardPkg
 #
 # Copyright (c) 2021, Intel Corporation. All rights reserved.<BR>
 #
@@ -8,7 +8,7 @@
 ##
 
 # @todo: This file is currently only used to enable RebaseFspBinBaseAddress.py to function.
-#        The FDF file for WhitleyOpenBoardPkg should be adapted to leverage FlashMapInclude.fdf
+#        The FDF file for EagleStreamOpenBoardPkg should be adapted to leverage FlashMapInclude.fdf
 #        format found in other OpenBoardPkgs.
 
 #

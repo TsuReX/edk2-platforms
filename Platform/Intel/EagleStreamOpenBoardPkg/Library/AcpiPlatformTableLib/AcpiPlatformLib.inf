@@ -62,11 +62,11 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   UefiCpuPkg/UefiCpuPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleySiliconPkg/Cpu/CpuRcPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamSiliconPkg/Cpu/CpuRcPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
 
 [LibraryClasses]
   BaseLib

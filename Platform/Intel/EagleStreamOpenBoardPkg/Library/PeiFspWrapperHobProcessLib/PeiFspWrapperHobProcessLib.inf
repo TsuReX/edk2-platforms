@@ -50,10 +50,10 @@
   IntelFsp2Pkg/IntelFsp2Pkg.dec
   IntelFsp2WrapperPkg/IntelFsp2WrapperPkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [LibraryClasses]
   BaseLib

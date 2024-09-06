@@ -727,7 +727,7 @@ gCpPlatFlashTokenSpaceGuid.PcdFlashBackupRegionSize                |0x00000000 |
     <HeaderFiles>
       Guid/PlatformInfo.h
      <Packages>
-      WhitleyOpenBoardPkg/PlatformPkg.dec
+      EagleStreamOpenBoardPkg/PlatformPkg.dec
   }
   # Interposer A MC 0 mapped to original MC1
   # Enum values for Interposer
@@ -748,9 +748,9 @@ gStructPcdTokenSpaceGuid.PcdEmulationDfxConfig|{0}|EMULATION_DFX_CONFIGURATION|0
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdFpgaSocketConfig|{0}|FPGA_SOCKET_CONFIGURATION|0XFCD00010{
  <HeaderFiles>
@@ -758,9 +758,9 @@ gStructPcdTokenSpaceGuid.PcdFpgaSocketConfig|{0}|FPGA_SOCKET_CONFIGURATION|0XFCD
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdIeRcConfiguration|{0}|IE_RC_CONFIGURATION|0XFCD00004{
  <HeaderFiles>
@@ -768,9 +768,9 @@ gStructPcdTokenSpaceGuid.PcdIeRcConfiguration|{0}|IE_RC_CONFIGURATION|0XFCD00004
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdMeRcConfiguration|{0}|ME_RC_CONFIGURATION|0XFCD0000B{
  <HeaderFiles>
@@ -778,10 +778,10 @@ gStructPcdTokenSpaceGuid.PcdMeRcConfiguration|{0}|ME_RC_CONFIGURATION|0XFCD0000B
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdMemBootHealthConfig|{0}|MEM_BOOT_HEALTH_CONFIG|0XFCD00002{
  <HeaderFiles>
@@ -789,10 +789,10 @@ gStructPcdTokenSpaceGuid.PcdMemBootHealthConfig|{0}|MEM_BOOT_HEALTH_CONFIG|0XFCD
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdPchSetup|{0}|PCH_SETUP|0XFCD00007{
  <HeaderFiles>
@@ -800,10 +800,10 @@ gStructPcdTokenSpaceGuid.PcdPchSetup|{0}|PCH_SETUP|0XFCD00007{
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdSetup|{0}|SYSTEM_CONFIGURATION|0XFCD0000F{
  <HeaderFiles>
@@ -811,10 +811,10 @@ gStructPcdTokenSpaceGuid.PcdSetup|{0}|SYSTEM_CONFIGURATION|0XFCD0000F{
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdSocketCommonRcConfig|{0}|SOCKET_COMMONRC_CONFIGURATION|0XFCD00001{
  <HeaderFiles>
@@ -822,10 +822,10 @@ gStructPcdTokenSpaceGuid.PcdSocketCommonRcConfig|{0}|SOCKET_COMMONRC_CONFIGURATI
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdSocketIioConfig|{0}|SOCKET_IIO_CONFIGURATION|0XFCD00006{
  <HeaderFiles>
@@ -833,10 +833,10 @@ gStructPcdTokenSpaceGuid.PcdSocketIioConfig|{0}|SOCKET_IIO_CONFIGURATION|0XFCD00
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdSocketMemoryConfig|{0}|SOCKET_MEMORY_CONFIGURATION|0XFCD0000D{
  <HeaderFiles>
@@ -844,10 +844,10 @@ gStructPcdTokenSpaceGuid.PcdSocketMemoryConfig|{0}|SOCKET_MEMORY_CONFIGURATION|0
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdSocketMpLinkConfig|{0}|SOCKET_MP_LINK_CONFIGURATION|0XFCD00008{
  <HeaderFiles>
@@ -855,10 +855,10 @@ gStructPcdTokenSpaceGuid.PcdSocketMpLinkConfig|{0}|SOCKET_MP_LINK_CONFIGURATION|
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdSocketPowerManagementConfig|{0}|SOCKET_POWERMANAGEMENT_CONFIGURATION|0XFCD00005{
  <HeaderFiles>
@@ -866,10 +866,10 @@ gStructPcdTokenSpaceGuid.PcdSocketPowerManagementConfig|{0}|SOCKET_POWERMANAGEME
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdSocketProcessorCoreConfig|{0}|SOCKET_PROCESSORCORE_CONFIGURATION|0XFCD00003{
  <HeaderFiles>
@@ -877,10 +877,10 @@ gStructPcdTokenSpaceGuid.PcdSocketProcessorCoreConfig|{0}|SOCKET_PROCESSORCORE_C
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdSvConfiguration|{0}|SV_CONFIGURATION|0XFCD00009{
  <HeaderFiles>
@@ -888,10 +888,10 @@ gStructPcdTokenSpaceGuid.PcdSvConfiguration|{0}|SV_CONFIGURATION|0XFCD00009{
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdTCG2_CONFIGURATION|{0}|TCG2_CONFIGURATION|0XFCD0000A{
  <HeaderFiles>
@@ -899,9 +899,9 @@ gStructPcdTokenSpaceGuid.PcdTCG2_CONFIGURATION|{0}|TCG2_CONFIGURATION|0XFCD0000A
  <Packages>
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
   SecurityPkg/SecurityPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 }
 gStructPcdTokenSpaceGuid.PcdTCG2_VERSION|{0}|TCG2_VERSION|0XFCD0000E{
  <HeaderFiles>
@@ -910,7 +910,7 @@ gStructPcdTokenSpaceGuid.PcdTCG2_VERSION|{0}|TCG2_VERSION|0XFCD0000E{
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   SecurityPkg/SecurityPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 }
 [PcdsFixedAtBuild, PcdsPatchableInModule, PcdsDynamicEx]
   gOemSkuTokenSpaceGuid.PcdTurboPowerLimitLock|0x01|UINT8|0x00000209

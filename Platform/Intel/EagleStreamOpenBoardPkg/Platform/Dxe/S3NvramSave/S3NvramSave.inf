@@ -25,8 +25,8 @@
   MdeModulePkg/MdeModulePkg.dec
   IntelFsp2Pkg/IntelFsp2Pkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [Sources]
   S3NvramSave.h

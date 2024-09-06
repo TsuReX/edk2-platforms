@@ -31,7 +31,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
 
 [Sources]
   PchSpi.c

@@ -16,7 +16,7 @@
   SUPPORTED_ARCHITECTURES             = IA32|X64
   BUILD_TARGETS                       = DEBUG|RELEASE
   PLATFORM_SI_PACKAGE                 = ClientOneSiliconPkg
-  DEFINE      PLATFORM_SI_BIN_PACKAGE = WhitleySiliconBinPkg
+  DEFINE      PLATFORM_SI_BIN_PACKAGE = EagleStreamSiliconBinPkg
   PEI_ARCH                            = IA32
   DXE_ARCH                            = X64
 
@@ -24,7 +24,7 @@
   DEFINE FSP_BIN_PKG            = CedarIslandFspBinPkg
   DEFINE IIO_INSTANCE           = Skx
 !elseif $(CPUTARGET) == "ICX"
-  DEFINE FSP_BIN_PKG            = WhitleyFspBinPkg
+  DEFINE FSP_BIN_PKG            = EagleStreamFspBinPkg
   DEFINE IIO_INSTANCE           = Icx
 !else
   DEFINE IIO_INSTANCE           = UnknownCpu

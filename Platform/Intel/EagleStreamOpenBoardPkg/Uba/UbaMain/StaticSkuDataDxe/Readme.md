@@ -2,17 +2,17 @@
 
 The StaticSkuDataDxe driver includes AmlOffsetTable.c which contains the AML offset table.  This Readme captures the build process for this file.
 
-edk2-platforms/Platform/Intel/WhitleyOpenBoardPkg/WilsonCityRvp/build_board.py drives the build since ACPI tables are expected to be board specific.
+edk2-platforms/Platform/Intel/EagleStreamOpenBoardPkg/WilsonCityRvp/build_board.py drives the build since ACPI tables are expected to be board specific.
 
 The AmlOffsetTable.c file is generated in two key steps:
 1. Generate the *Dsdt*.offsets.h where *Dsdt* is the DSDT ASL file name specific for this build. For WilsonCityRvp:
-   * The DSDT is WhitleyOpenBoardPkg/Features/Acpi/AcpiTables/Dsdt/EPRPPlatform10nm.asl
-   * The generated file is Build/WhitleyOpenBoardPkg/DEBUG_VS2015x86/X64/WhitleyOpenBoardPkg/WilsonCityRvp/AmlOffsets/AmlOffsets/OUTPUT/WhitleyOpenBoardPkg/Features/Acpi/AcpiTables/Dsdt/EPRPPlatform10nm.offset.h
+   * The DSDT is EagleStreamOpenBoardPkg/Features/Acpi/AcpiTables/Dsdt/EPRPPlatform10nm.asl
+   * The generated file is Build/EagleStreamOpenBoardPkg/DEBUG_VS2015x86/X64/WhitleyOpenBoardPkg/WilsonCityRvp/AmlOffsets/AmlOffsets/OUTPUT/WhitleyOpenBoardPkg/Features/Acpi/AcpiTables/Dsdt/EPRPPlatform10nm.offset.h
    * These are customized in the build_config.cfg file
 2. Generate the AmlOffsetTable.c using the AmlGenOffset.py script from the MinPlatformPkg. For WilsonCityRvp:
    * Script is at edk2-platforms/Platform/Intel/MinPlatformPkg/Tools/AmlGenOffset/AmlGenOffset.py
-   * Input is Build/WhitleyOpenBoardPkg/DEBUG_VS2015x86/X64/WhitleyOpenBoardPkg/WilsonCityRvp/AmlOffsets/AmlOffsets/OUTPUT/WhitleyOpenBoardPkg/Features/Acpi/AcpiTables/Dsdt/EPRPPlatform10nm.offset.h
-   * Output is edk2-platforms/Platform/Intel/WhitleyOpenBoardPkg/Uba/UbaMain/StaticSkuDataDxe/AmlOffsetTable.c
+   * Input is Build/EagleStreamOpenBoardPkg/DEBUG_VS2015x86/X64/WhitleyOpenBoardPkg/WilsonCityRvp/AmlOffsets/AmlOffsets/OUTPUT/WhitleyOpenBoardPkg/Features/Acpi/AcpiTables/Dsdt/EPRPPlatform10nm.offset.h
+   * Output is edk2-platforms/Platform/Intel/EagleStreamOpenBoardPkg/Uba/UbaMain/StaticSkuDataDxe/AmlOffsetTable.c
 
 Common Issues:
 * The same iasl compiler version must be used to build the AML offset table and to build the DSDT.

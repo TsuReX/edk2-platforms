@@ -25,7 +25,7 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [Sources]
   PeiReportFvLib.c

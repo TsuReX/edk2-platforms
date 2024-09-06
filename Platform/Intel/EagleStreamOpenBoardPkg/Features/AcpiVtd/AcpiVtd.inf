@@ -26,9 +26,9 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
 
 [LibraryClasses]
   UefiDriverEntryPoint

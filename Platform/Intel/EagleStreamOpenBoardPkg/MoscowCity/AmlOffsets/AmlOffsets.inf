@@ -19,7 +19,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
 
 [BuildOptions]
   # add -vr and -so to generate offset.h

@@ -563,14 +563,14 @@
   S3BootScriptLib|MdeModulePkg/Library/PiDxeS3BootScriptLib/DxeS3BootScriptLib.inf
   FrameBufferBltLib|MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
 
-  SiliconPolicyInitLib|WhitleySiliconPkg/Library/SiliconPolicyInitLibShim/SiliconPolicyInitLibShim.inf
+  SiliconPolicyInitLib|EagleStreamSiliconPkg/Library/SiliconPolicyInitLibShim/SiliconPolicyInitLibShim.inf
 !if ($(FSP_MODE) == 0)
   SiliconPolicyUpdateLib|$(RP_PKG)/Library/SiliconPolicyUpdateLib/SiliconPolicyUpdateLibFsp.inf
 !else
   SiliconPolicyUpdateLib|$(RP_PKG)/Library/SiliconPolicyUpdateLib/SiliconPolicyUpdateLib.inf
 !endif
 
-  SetupLib|WhitleySiliconPkg/Library/SetupLib/SetupLib.inf
+  SetupLib|EagleStreamSiliconPkg/Library/SetupLib/SetupLib.inf
 
   #
   # ToDo:  Can we use BaseAcpiTimerLib from MinPlatform?
@@ -611,7 +611,7 @@
 [LibraryClasses.Common.SEC, LibraryClasses.Common.PEI_CORE, LibraryClasses.Common.PEIM]
   FspWrapperApiLib|IntelFsp2WrapperPkg/Library/BaseFspWrapperApiLib/BaseFspWrapperApiLib.inf
   FspWrapperApiTestLib|IntelFsp2WrapperPkg/Library/PeiFspWrapperApiTestLib/PeiFspWrapperApiTestLib.inf
-  FspWrapperPlatformLib|WhitleySiliconPkg/Library/FspWrapperPlatformLib/FspWrapperPlatformLib.inf
+  FspWrapperPlatformLib|EagleStreamSiliconPkg/Library/FspWrapperPlatformLib/FspWrapperPlatformLib.inf
   FspWrapperHobProcessLib|EagleStreamOpenBoardPkg/Library/PeiFspWrapperHobProcessLib/PeiFspWrapperHobProcessLib.inf
 
   FspSwitchStackLib|IntelFsp2Pkg/Library/BaseFspSwitchStackLib/BaseFspSwitchStackLib.inf
@@ -721,7 +721,7 @@
 
   $(PLATFORM_PKG)/PlatformInit/SiliconPolicyPei/SiliconPolicyPeiPreMem.inf{
     <LibraryClasses>
-      SiliconWorkaroundLib|WhitleySiliconPkg/Library/SiliconWorkaroundLibNull/SiliconWorkaroundLibNull.inf
+      SiliconWorkaroundLib|EagleStreamSiliconPkg/Library/SiliconWorkaroundLibNull/SiliconWorkaroundLibNull.inf
   }
   $(RP_PKG)/Platform/Pei/EmulationPlatformInit/EmulationPlatformInit.inf
   $(PLATFORM_PKG)/PlatformInit/PlatformInitPei/PlatformInitPostMem.inf {
@@ -738,7 +738,7 @@
 
   $(RP_PKG)/BiosInfo/BiosInfo.inf
 
-  WhitleySiliconPkg/Pch/SouthClusterLbg/MultiPch/Pei/MultiPchPei.inf
+  EagleStreamSiliconPkg/Pch/SouthClusterLbg/MultiPch/Pei/MultiPchPei.inf
   UefiCpuPkg/PiSmmCommunication/PiSmmCommunicationPei.inf
 
   UefiCpuPkg/CpuMpPei/CpuMpPei.inf

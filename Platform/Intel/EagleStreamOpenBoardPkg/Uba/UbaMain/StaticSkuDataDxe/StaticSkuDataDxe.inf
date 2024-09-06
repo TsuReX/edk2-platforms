@@ -33,9 +33,9 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [LibraryClasses]
   BaseLib

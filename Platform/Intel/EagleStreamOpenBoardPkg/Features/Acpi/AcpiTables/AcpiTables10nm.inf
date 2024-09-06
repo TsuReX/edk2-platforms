@@ -37,9 +37,9 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [FixedPcd]
   gEfiCpRcPkgTokenSpaceGuid.PcdMaxCpuSocketCount

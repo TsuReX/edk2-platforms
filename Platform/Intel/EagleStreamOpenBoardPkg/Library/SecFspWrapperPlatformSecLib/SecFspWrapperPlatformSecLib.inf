@@ -63,8 +63,8 @@
   UefiCpuPkg/UefiCpuPkg.dec
   IntelFsp2Pkg/IntelFsp2Pkg.dec
   IntelFsp2WrapperPkg/IntelFsp2WrapperPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
   WhitleyFspBinPkg/WhitleyFspBinPkg.dec
 

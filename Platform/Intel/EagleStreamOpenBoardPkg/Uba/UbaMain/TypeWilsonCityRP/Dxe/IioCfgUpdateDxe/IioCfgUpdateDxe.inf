@@ -30,10 +30,10 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [Guids]
   gPlatformIioConfigDataDxeGuid

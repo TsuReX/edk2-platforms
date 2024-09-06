@@ -24,10 +24,10 @@
   MdePkg/MdePkg.dec
   SecurityPkg/SecurityPkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [LibraryClasses]
   PeiServicesTablePointerLib

@@ -155,7 +155,7 @@ SET gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaSize         = 0x01000000
 
   INF  EagleStreamOpenBoardPkg/BiosInfo/BiosInfo.inf
 
-  INF  WhitleySiliconPkg/Pch/SouthClusterLbg/MultiPch/Pei/MultiPchPei.inf
+  INF  EagleStreamSiliconPkg/Pch/SouthClusterLbg/MultiPch/Pei/MultiPchPei.inf
 
 #  FILE PEIM = ac4b7f1b-e057-47d3-b2b5-1137493c0f38 {
 #    SECTION PEI_DEPEX = $(FSP_BIN_PKG)/UefiDrivers/$(FSP_BIN_DIR)/ac4b7f1b-e057-47d3-b2b5-1137493c0f38DynamicSiLibrary.depex

@@ -26,12 +26,12 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleySiliconPkg/Cpu/CpuRcPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamSiliconPkg/Cpu/CpuRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
   UefiCpuPkg/UefiCpuPkg.dec
 
 [LibraryClasses]

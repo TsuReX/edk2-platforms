@@ -34,11 +34,11 @@
 [Packages]
   MdePkg/MdePkg.dec
   IntelSiliconPkg/IntelSiliconPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
   MinPlatformPkg/MinPlatformPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
 
 [Pcd]
   gMinPlatformPkgTokenSpaceGuid.PcdFlashAreaBaseAddress  ## CONSUMES

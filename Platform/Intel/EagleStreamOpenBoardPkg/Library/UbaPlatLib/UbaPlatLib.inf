@@ -38,10 +38,10 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  WhitleySiliconPkg/CpRcPkg.dec
-  WhitleySiliconPkg/SiliconPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamSiliconPkg/CpRcPkg.dec
+  EagleStreamSiliconPkg/SiliconPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
   UefiCpuPkg/UefiCpuPkg.dec
 
 [Protocols]

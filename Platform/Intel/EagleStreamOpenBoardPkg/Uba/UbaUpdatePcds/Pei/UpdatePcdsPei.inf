@@ -27,7 +27,7 @@
 
 [Packages]
   MdePkg/MdePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
 
 [LibraryClasses]
   BaseLib

@@ -11,7 +11,7 @@ There are corresponding binaries in edk2-non-osi/WhitleyOpenBoardBinPkg.
 And there is a template for board porting, *BoardPortWhitley*.  See below for detailed instructions on creating a new board port.
 
 ## BoardPortTemplate
-This template profides basic instructions for how to customize the WhitleyOpenBoardPkg for a new system board.
+This template profides basic instructions for how to customize the EagleStreamOpenBoardPkg for a new system board.
 
 ## Board Naming Conventions
 The naming of boards within the filesystem is only loosely affiliated with naming used in code.
@@ -27,13 +27,13 @@ The convention *TypeBoardName* shows up in code in several ways:
 There is no requirement for board directory naming to match code. The most important thing is for developers to match the source code with their hardware. Consistency is desirable, but it is very common for one board port to support multiple board and system products and thus consistent naming between file system and code content is not required.
 
 ## Board Porting Steps
-It is desirable to pick a fairly unique name as WhitleyOpenBoardPkg UBA feature is designed to make it easy to support many boards in a single binary.
+It is desirable to pick a fairly unique name as EagleStreamOpenBoardPkg UBA feature is designed to make it easy to support many boards in a single binary.
 For the purposes of this example, "MyBoard" is the board name in code and filesystem.
 
-1. Copy WhitleyOpenBoardPkg/BoardPortTemplate to WhitleyOpenBoardPkg/MyBoard
-2. Rename WhitleyOpenBoardPkg/MyBoard/Uba/TypeBoardPortTemplate to WhitleyOpenBoardPkg/MyBoard/Uba/TypeMyBoard
-3. Search and replace BoardPortTemplate with MyBoard in WhitleyOpenBoardPkg/MyBoard.  Do not search and replace at a higher scope as you will break the template examples.
-4. Add a new EFI_PLATFORM_TYPE enum in edk2-platforms\Silicon\Intel\WhitleySiliconPkg\Include\PlatformInfoTypes.h, e.g.
+1. Copy EagleStreamOpenBoardPkg/BoardPortTemplate to WhitleyOpenBoardPkg/MyBoard
+2. Rename EagleStreamOpenBoardPkg/MyBoard/Uba/TypeBoardPortTemplate to WhitleyOpenBoardPkg/MyBoard/Uba/TypeMyBoard
+3. Search and replace BoardPortTemplate with MyBoard in EagleStreamOpenBoardPkg/MyBoard.  Do not search and replace at a higher scope as you will break the template examples.
+4. Add a new EFI_PLATFORM_TYPE enum in edk2-platforms\Silicon\Intel\EagleStreamSiliconPkg\Include\PlatformInfoTypes.h, e.g.
 ```
 TypeMyBoard, // 0x80
 ```
@@ -41,16 +41,16 @@ Please update the comment for TypeBoardPortTemplate to match the new maximum use
 ```
 TypeBoardPortTemplate               // 0x81
 ```
-5. Update the PcdBoardId for your board in the WhitleyOpenBoardPkg/MyBoard/PlatformPkg.dsc, e.g.
+5. Update the PcdBoardId for your board in the EagleStreamOpenBoardPkg/MyBoard/PlatformPkg.dsc, e.g.
 ```
 gPlatformTokenSpaceGuid.PcdBoardId|0x80 # TypeMyBoard
 ```
-6. Update each INF in WhitleyOpenBoardPkg/MyBoard/Uba with new GUID filename
-7. Add a DXE UBA protocol GUID to WhitleyOpenBoardPkg/PlatformPkg.dec, *with a new GUID*
+6. Update each INF in EagleStreamOpenBoardPkg/MyBoard/Uba with new GUID filename
+7. Add a DXE UBA protocol GUID to EagleStreamOpenBoardPkg/PlatformPkg.dec, *with a new GUID*
 ```
 gEfiPlatformTypeMyBoardProtocolGuid       = { 0xa68228c5, 0xc00f, 0x4d9a, { 0x8d, 0xed, 0xb9, 0x6b, 0x9e, 0xef, 0xab, 0xca } }
 ```
-8. Add your board to the switch statement in BoardInitDxeDriverEntry (); in WhitleyOpenBoardPkg/Uba/BoardInit/Dxe/BoardInitDxe.c
+8. Add your board to the switch statement in BoardInitDxeDriverEntry (); in EagleStreamOpenBoardPkg/Uba/BoardInit/Dxe/BoardInitDxe.c
 ```
    case TypeMyBoard:
       Status = gBS->InstallProtocolInterface (
@@ -62,10 +62,10 @@ gEfiPlatformTypeMyBoardProtocolGuid       = { 0xa68228c5, 0xc00f, 0x4d9a, { 0x8d
       ASSERT_EFI_ERROR (Status);
       break;
 ```
-9. Add the gEfiPlatformTypeMyBoardProtocolGuid to the WhitleyOpenBoardPkg/Uba/BoardInit/Dxe/BoardInitDxe.inf
+9. Add the gEfiPlatformTypeMyBoardProtocolGuid to the EagleStreamOpenBoardPkg/Uba/BoardInit/Dxe/BoardInitDxe.inf
 10. Add a build option to edk2-platforms/Platform/Intel/build.cfg.  e.g.
 ```
-MyBoard = WhitleyOpenBoardPkg/MyBoard/build_config.cfg
+MyBoard = EagleStreamOpenBoardPkg/MyBoard/build_config.cfg
 ```
 11. At this point, you can build from edk2-platforms/Platform/Intel, e.g.
 ```

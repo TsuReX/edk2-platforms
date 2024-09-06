@@ -29,9 +29,9 @@
 [Packages]
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
-  WhitleyOpenBoardPkg/PlatformPkg.dec
+  EagleStreamOpenBoardPkg/PlatformPkg.dec
   IntelSiliconPkg/IntelSiliconPkg.dec
-  WhitleySiliconPkg/WhitleySiliconPkg.dec
+  EagleStreamSiliconPkg/EagleStreamSiliconPkg.dec
 
 [LibraryClasses]
   PcdLib
