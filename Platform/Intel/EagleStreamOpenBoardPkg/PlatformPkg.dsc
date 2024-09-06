@@ -25,8 +25,8 @@
   VPD_TOOL_GUID                       = 8C3D856A-9BE6-468E-850A-24F7A8D38E08
   FLASH_DEFINITION                    = $(RP_PKG)/PlatformPkg.fdf
   PLATFORM_SI_PACKAGE                 = ClientOneSiliconPkg
-#  DEFINE      PLATFORM_SI_BIN_PACKAGE = EaglestreamSiliconBinPkg
-  DEFINE      PLATFORM_SI_BIN_PACKAGE = WhitleySiliconBinPkg
+  DEFINE      PLATFORM_SI_BIN_PACKAGE = EaglestreamSiliconBinPkg
+#  DEFINE      PLATFORM_SI_BIN_PACKAGE = WhitleySiliconBinPkg
 
   PEI_ARCH                            = IA32
   DXE_ARCH                            = X64
@@ -35,14 +35,14 @@
 #  DEFINE FSP_BIN_PKG            = CedarIslandFspBinPkg
 #  DEFINE IIO_INSTANCE           = Skx
 #!elseif $(CPUTARGET) == "ICX"
-  DEFINE FSP_BIN_PKG            = WhitleyFspBinPkg
-  DEFINE IIO_INSTANCE           = Icx
+#  DEFINE FSP_BIN_PKG            = WhitleyFspBinPkg
+#  DEFINE IIO_INSTANCE           = Icx
 #!else
 #  DEFINE IIO_INSTANCE           = UnknownCpu
 #!endif
 
-#  DEFINE FSP_BIN_PKG            = EagleStreamFspBinPkg
-#  DEFINE IIO_INSTANCE           = Icx
+  DEFINE FSP_BIN_PKG            = EagleStreamFspBinPkg
+  DEFINE IIO_INSTANCE           = Icx
 
 
 #
@@ -815,9 +815,9 @@
 
   $(PLATFORM_PKG)/FspWrapper/SaveMemoryConfig/SaveMemoryConfig.inf
 
-#  $(PLATFORM_SI_BIN_PACKAGE)/Microcode/MicrocodeUpdates.inf
+  $(PLATFORM_SI_BIN_PACKAGE)/Microcode/MicrocodeUpdates.inf
 #  $(PLATFORM_SI_BIN_PACKAGE)/CpxMicrocode/MicrocodeUpdates.inf
-  $(PLATFORM_SI_BIN_PACKAGE)/IcxMicrocode/MicrocodeUpdates.inf
+#  $(PLATFORM_SI_BIN_PACKAGE)/IcxMicrocode/MicrocodeUpdates.inf
 
   MdeModulePkg/Bus/Pci/PciSioSerialDxe/PciSioSerialDxe.inf
   MdeModulePkg/Universal/Console/TerminalDxe/TerminalDxe.inf
