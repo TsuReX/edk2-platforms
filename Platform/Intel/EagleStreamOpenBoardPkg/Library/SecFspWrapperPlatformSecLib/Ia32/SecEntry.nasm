@@ -133,10 +133,12 @@ ProtectedModeEntryPoint:
 
   mov al, 0x80
   out 0xAA, al
-  mov ebp, setup_car_ret
-  jmp setup_car
-;  mov     esp, BoardBeforeTempRamInitRet
-;  jmp     ASM_PFX(BoardBeforeTempRamInit)
+;  mov ebp, setup_car_ret
+;  jmp setup_car
+  mov eax, FsptUpdDataPtr
+;  jmp $
+  mov     esp, BoardBeforeTempRamInitRet
+  jmp     ASM_PFX(BoardBeforeTempRamInit)
 
 BoardBeforeTempRamInitRet:
 
@@ -210,6 +212,7 @@ FspHeaderFound:
   mov esp, TempRamInitStack
 
   ; Call the fsp TempRamInit Api
+  mov ebx, 0xDEADBE11
   jmp eax
 
 TempRamInitDone:
@@ -238,7 +241,11 @@ CallSecFspInit:
   call    ASM_PFX(CallPeiCoreEntryPoint)
 
 FspApiFailed:
-  jmp $
+  mov al, 0x80
+  out 0x00, al
+  out 0xFF, al
+
+  jmp FspApiFailed
 
 align 10h
 TempRamInitStack:
