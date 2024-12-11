@@ -48,7 +48,7 @@
 #define  PID_BROADCAST1                         0xFF
 #define  PID_BROADCAST2                         0xFE
 //Rsv                                = 0xFD-0xF0,
-#define  PID_DMI                                0xEF
+#define  PID_DMI                                0x88
 #define  PID_ESPISPI                            0xEE
 #define  PID_ICLK                               0xED
 #define  PID_MODPHY4                            0xEB

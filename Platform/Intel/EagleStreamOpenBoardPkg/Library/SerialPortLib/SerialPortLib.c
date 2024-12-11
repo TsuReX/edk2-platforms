@@ -436,29 +436,13 @@ InitializeSio (
   UINT32  SioExist;
   UINT32  SioEnable;
   UINT32  Index;
-  UINT32  Decode;
-  UINT32  Enable;
-  UINT32  SpiConfigValue;
 
-  //
-  // Enable LPC decode
-  // Set COMA/COMB base
-  //
-  Decode =  ((V_LPC_CFG_IOD_COMA_3F8 << N_LPC_CFG_IOD_COMA) | (V_LPC_CFG_IOD_COMB_2F8 << N_LPC_CFG_IOD_COMB));
-  SpiConfigValue = MmioRead32 (PCH_PCR_ADDRESS (PID_ESPISPI, R_PCH_PCR_SPI_CONF_VALUE));
-  if (SpiConfigValue & B_ESPI_ENABLE_STRAP) {
-    Enable =  ( B_LPC_CFG_IOE_ME2 | B_LPC_CFG_IOE_SE | B_LPC_CFG_IOE_ME1 \
-              | B_LPC_CFG_IOE_CBE | B_LPC_CFG_IOE_CAE);
-  } else {
-    Enable =  ( B_LPC_CFG_IOE_ME2 | B_LPC_CFG_IOE_SE | B_LPC_CFG_IOE_ME1 \
-              | B_LPC_CFG_IOE_KE | B_LPC_CFG_IOE_CBE | B_LPC_CFG_IOE_CAE);
-  }
-  IoWrite32 (R_PCH_IOPORT_PCI_INDEX, (UINT32) (PCH_LPC_CF8_ADDR (R_LPC_CFG_IOD)));
+  IoWrite32 (R_PCH_IOPORT_PCI_INDEX, (PCH_LPC_CF8_ADDR (R_LPC_CFG_IOD)));
+  IoWrite32 (R_PCH_IOPORT_PCI_DATA, BIT29 | BIT28 | BIT27 | BIT17 | BIT16 | BIT4);
 
-  IoWrite32 (R_PCH_IOPORT_PCI_DATA, Decode | (Enable << 16));
-
-  MmioWrite16 (PCH_PCR_ADDRESS(PID_DMI, R_PCH_DMI_PCR_LPCIOD), (UINT16)Decode);
-  MmioWrite16 (PCH_PCR_ADDRESS(PID_DMI, R_PCH_DMI_PCR_LPCIOE), (UINT16)Enable);
+  // Setting up PCH PCR register to allow I/O translations via LPC
+  MmioWrite32 (PCH_PCR_ADDRESS(PID_DMI, R_PCH_DMI_PCR_LPCIOD), BIT4);
+  MmioWrite32 (PCH_PCR_ADDRESS(PID_DMI, R_PCH_DMI_PCR_LPCIOE), BIT1 | BIT0);
 
   SioExist = IsSioExist();
 
